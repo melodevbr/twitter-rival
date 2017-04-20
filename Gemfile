@@ -24,6 +24,6 @@ group :test do
   gem 'faker'
   gem 'simplecov', require: false
   gem 'activemodel'
-	gem 'shoulda-matchers', '2.8.0', require: false
+  gem 'shoulda-matchers', '2.8.0', require: false
   gem 'database_cleaner', '~> 1.5'
 end

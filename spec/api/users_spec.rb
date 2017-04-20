@@ -10,11 +10,11 @@ describe Twitter::Api::Users do
   before(:each) do
     FactoryGirl.create(:application)
 
-    @marcus = FactoryGirl.create(:user, email: "marcus@example.com", 
+    @marcus = FactoryGirl.create(:user, email: "marcus@example.com",
       password: "12345678", password_confirmation: "12345678")
-    @ivan = FactoryGirl.create(:user, email: "ivan@example.com", 
+    @ivan = FactoryGirl.create(:user, email: "ivan@example.com",
       password: "12345678", password_confirmation: "12345678")
-    @hotaviano = FactoryGirl.create(:user, email: "hotaviano@example.com", 
+    @hotaviano = FactoryGirl.create(:user, email: "hotaviano@example.com",
       password: "12345678", password_confirmation: "12345678")
   end
 
@@ -57,30 +57,30 @@ describe Twitter::Api::Users do
       @access_token = JSON.parse(last_response.body)["access_token"];
     end
 
-  	it "should post a message" do
+    it "should post a message" do
 
       expect(@access_token).not_to be_nil
 
-      header "Authorization", "Bearer #{@access_token}" 
-      post "/api/v1/users/messages", { 
-        :text => "Hello there!" 
+      header "Authorization", "Bearer #{@access_token}"
+      post "/api/v1/users/messages", {
+        :text => "Hello there!"
       }
 
       expect(JSON.parse(last_response.body)["text"]).to eq("Hello there!")
-  	end
+    end
 
     it "should validate the message sending data" do
       expect(@access_token).not_to be_nil
 
-      header "Authorization", "Bearer #{@access_token}" 
-      post "/api/v1/users/messages", { 
+      header "Authorization", "Bearer #{@access_token}"
+      post "/api/v1/users/messages", {
         :text => nil
       }
 
       expect(last_response.status).to eq(400)
     end
 
-  	it "should follow an user" do
+    it "should follow an user" do
 
       expect(@access_token).not_to be_nil
 
@@ -89,9 +89,9 @@ describe Twitter::Api::Users do
 
       expect(JSON.parse(last_response.body)["id"]).to eq(@marcus.id)
       expect(@hotaviano.following.length).to eq(1)
-  	end
+    end
 
-  	it "should see timeline" do
+    it "should see timeline" do
       expect(@access_token).not_to be_nil
 
       header "Authorization", "Bearer #{@access_token}"
@@ -111,7 +111,7 @@ describe Twitter::Api::Users do
       expect(JSON.parse(last_response.body)[1]["text"]).to eq("DO IT!")
       expect(@marcus.timeline.length).to eq(2);
       expect(@ivan.timeline.length).to eq(1);
-  	end
+    end
 
   end
 

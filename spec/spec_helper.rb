@@ -24,7 +24,7 @@ require File.expand_path('../../config/boot', __FILE__)
 
 RSpec.configure do |config|
 
-	config.include FactoryGirl::Syntax::Methods
+  config.include FactoryGirl::Syntax::Methods
   config.include Shoulda::Matchers
 
   config.mock_with :rspec

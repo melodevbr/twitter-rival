@@ -2,6 +2,6 @@ require 'spec_helper'
 
 describe Twitter::Api::Users do
   it 'rake routes' do
-    rc = `rake routes`
+    `rake routes`
   end
 end

@@ -19,6 +19,5 @@ Style/AccessorMethodName:
 # Offense count: 3
 Style/Documentation:
   Exclude:
-    - 'api/ping.rb'
     - 'app/app.rb'
     - 'config/initializers/grape/route.rb'
