@@ -1,0 +1,9 @@
+---
+:orm: activerecord
+:test: rspec
+:mock: rr
+:script: none
+:renderer: none
+:stylesheet: none
+:namespace: GrapeOnPadrino
+:migration_format: number

@@ -1,0 +1,209 @@
+GIT
+  remote: https://github.com/nbulaj/grape_oauth2.git
+  revision: 7f7fa807f9499a68f99c80f26bb99473bdbb831b
+  specs:
+    grape_oauth2 (0.1.1)
+      grape (~> 0.16)
+      rack-oauth2 (~> 1.3.0, >= 1.3.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (5.0.2)
+      activesupport (= 5.0.2)
+    activerecord (5.0.2)
+      activemodel (= 5.0.2)
+      activesupport (= 5.0.2)
+      arel (~> 7.0)
+    activesupport (5.0.2)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    arel (7.1.4)
+    ast (2.3.0)
+    attr_required (1.0.1)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
+    bcrypt (3.1.11)
+    builder (3.2.3)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
+    concurrent-ruby (1.0.5)
+    database_cleaner (1.5.3)
+    declarative (0.0.9)
+    declarative-option (0.1.0)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
+    diff-lcs (1.3)
+    docile (1.1.5)
+    enumerable-lazy (0.0.2)
+    equalizer (0.0.11)
+    erubis (2.7.0)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
+    faker (1.7.3)
+      i18n (~> 0.5)
+    grape (0.19.2)
+      activesupport
+      builder
+      hashie (>= 2.1.0)
+      multi_json (>= 1.3.2)
+      multi_xml (>= 0.5.2)
+      mustermann-grape (~> 1.0.0)
+      rack (>= 1.3.0)
+      rack-accept
+      virtus (>= 1.0.0)
+    grape-swagger (0.27.0)
+      grape (>= 0.16.2)
+    grape-swagger-representable (0.1.4)
+      grape-swagger (>= 0.20.4)
+      representable
+    hashie (3.5.5)
+    httpclient (2.8.3)
+    i18n (0.8.1)
+    ice_nine (0.11.2)
+    json (2.1.0)
+    mail (2.6.4)
+      mime-types (>= 1.16, < 4)
+    mime-types (2.99.3)
+    minitest (5.10.1)
+    moneta (0.8.1)
+    multi_json (1.12.1)
+    multi_xml (0.6.0)
+    mustermann (1.0.0)
+    mustermann-grape (1.0.0)
+      mustermann (~> 1.0.0)
+    mustermann19 (0.4.4)
+      enumerable-lazy
+    padrino (0.14.0.1)
+      padrino-admin (= 0.14.0.1)
+      padrino-cache (= 0.14.0.1)
+      padrino-core (= 0.14.0.1)
+      padrino-gen (= 0.14.0.1)
+      padrino-helpers (= 0.14.0.1)
+      padrino-mailer (= 0.14.0.1)
+      padrino-support (= 0.14.0.1)
+    padrino-admin (0.14.0.1)
+      padrino-core (= 0.14.0.1)
+      padrino-helpers (= 0.14.0.1)
+    padrino-cache (0.14.0.1)
+      moneta (~> 0.8.0)
+      padrino-core (= 0.14.0.1)
+      padrino-helpers (= 0.14.0.1)
+    padrino-core (0.14.0.1)
+      mustermann19
+      padrino-support (= 0.14.0.1)
+      rack-protection (>= 1.5.0)
+      sinatra (>= 1.4.6)
+      thor (~> 0.18)
+    padrino-gen (0.14.0.1)
+      bundler (~> 1.0)
+      padrino-core (= 0.14.0.1)
+    padrino-helpers (0.14.0.1)
+      i18n (~> 0.6, >= 0.6.7)
+      padrino-support (= 0.14.0.1)
+      tilt (>= 1.4.1, < 3)
+    padrino-mailer (0.14.0.1)
+      mail (~> 2.5)
+      mime-types (< 3)
+      padrino-core (= 0.14.0.1)
+    padrino-support (0.14.0.1)
+    parser (2.4.0.0)
+      ast (~> 2.2)
+    pg (0.20.0)
+    powerpack (0.1.1)
+    rack (1.6.5)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-oauth2 (1.3.1)
+      activesupport (>= 2.3)
+      attr_required (>= 0.0.5)
+      httpclient (>= 2.4)
+      multi_json (>= 1.3.6)
+      rack (>= 1.1)
+    rack-protection (1.5.3)
+      rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rainbow (2.2.1)
+    rake (12.0.0)
+    representable (3.0.4)
+      declarative (< 0.1.0)
+      declarative-option (< 0.2.0)
+      uber (< 0.2.0)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+    rspec-core (3.5.4)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
+    rubocop (0.48.1)
+      parser (>= 2.3.3.1, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-progressbar (1.8.1)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
+    simplecov (0.14.1)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
+    sinatra (1.4.8)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    thor (0.19.4)
+    thread_safe (0.3.6)
+    tilt (2.0.7)
+    tzinfo (1.2.3)
+      thread_safe (~> 0.1)
+    uber (0.1.0)
+    unicode-display_width (1.2.1)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activemodel
+  activerecord (>= 3.1)
+  bcrypt
+  database_cleaner (~> 1.5)
+  erubis
+  factory_girl
+  faker
+  grape
+  grape-swagger
+  grape-swagger-representable
+  grape_oauth2!
+  padrino
+  pg
+  rack-test
+  rake
+  rspec
+  rubocop
+  shoulda-matchers (= 2.8.0)
+  simplecov
+
+RUBY VERSION
+   ruby 2.3.1p112
+
+BUNDLED WITH
+   1.14.6
