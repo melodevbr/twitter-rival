@@ -1,4 +1,4 @@
-<center>Lean Twitter API</center>
+Lean Twitter API
 ====================
 
 Run
