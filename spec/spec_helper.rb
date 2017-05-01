@@ -6,24 +6,20 @@ require 'faker'
 require 'factory_girl'
 require 'database_cleaner'
 require 'shoulda/matchers'
-
-
 require 'rubygems'
 
 ENV['RACK_ENV'] ||= 'test'
 
-FactoryGirl.definition_file_paths = %w{./factories ./test/factories ./spec/factories}
+FactoryGirl.definition_file_paths = %w[./factories ./test/factories ./spec/factories]
 FactoryGirl.find_definitions
 
 DatabaseCleaner.strategy = :truncation
-
 
 require 'rack/test'
 
 require File.expand_path('../../config/boot', __FILE__)
 
 RSpec.configure do |config|
-
   config.include FactoryGirl::Syntax::Methods
   config.include Shoulda::Matchers
 
@@ -34,5 +30,4 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.clean
   end
-
 end

@@ -1,6 +1,5 @@
 module Twitter
   class App < Grape::API
-
     version :v1, using: :path
     format :json
     prefix :api
