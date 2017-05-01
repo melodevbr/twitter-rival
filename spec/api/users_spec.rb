@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe Twitter::Api::Users do
   include Rack::Test::Methods
@@ -10,72 +10,63 @@ describe Twitter::Api::Users do
   before(:each) do
     FactoryGirl.create(:application)
 
-    @marcus = FactoryGirl.create(:user, email: "marcus@example.com",
-      password: "12345678", password_confirmation: "12345678")
-    @ivan = FactoryGirl.create(:user, email: "ivan@example.com",
-      password: "12345678", password_confirmation: "12345678")
-    @hotaviano = FactoryGirl.create(:user, email: "hotaviano@example.com",
-      password: "12345678", password_confirmation: "12345678")
+    @marcus = FactoryGirl.create(:user, email:    'marcus@example.com',
+                                        password: '12345678',
+                                        password_confirmation: '12345678')
+
+    @ivan = FactoryGirl.create(:user, email: 'ivan@example.com',
+                                      password: '12345678',
+                                      password_confirmation: '12345678')
+
+    @hotaviano = FactoryGirl.create(:user, email: 'hotaviano@example.com',
+                                           password: '12345678',
+                                           password_confirmation: '12345678')
   end
 
-  context "when unauthenticated" do
+  context 'when unauthenticated' do
+    it 'should allow user to create a new account' do
+      post '/api/v1/users/signup',  email: 'joao@example.com',
+                                    password: '12345678',
+                                    password_confirmation: '12345678'
 
-    it "should allow user to create a new account" do
-      post "/api/v1/users/signup", {
-        :email => "joao@example.com",
-        :password => "12345678",
-        :password_confirmation => "12345678",
-      }
-
-      expect(User.where(:email => "joao@example.com").first).not_to be_nil
+      expect(User.where(email: 'joao@example.com').first).not_to be_nil
     end
 
-    it "should return authentication error" do
-      post "/api/v1/users/signup", {
-        :email => "joao@example.com",
-        :password => "12345678",
-        :password_confirmation => "123456789",
-      }
+    it 'should return authentication error' do
+      post '/api/v1/users/signup',  email: 'joao@example.com',
+                                    password: '12345678',
+                                    password_confirmation: '123456789'
 
       expect(last_response.status).to eq(400)
     end
-
   end
 
-  context "when authenticated" do
-
+  context 'when authenticated' do
     before(:each) do
+      post '/api/v1/oauth/token',
+        grant_type: 'password',
+        client_id: 'a78fb1383c14c6332165bc44c1a364b38d26fc68',
+        client_secret: '118a1de593252b71f178cef60ae8b6af7c484a51bead92a6671a2630b548e68e',
+        username: 'hotaviano@example.com',
+        password: '12345678'
 
-      post "/api/v1/oauth/token", {
-        :grant_type => "password",
-        :client_id => "a78fb1383c14c6332165bc44c1a364b38d26fc68",
-        :client_secret => "118a1de593252b71f178cef60ae8b6af7c484a51bead92a6671a2630b548e68e",
-        :username => "hotaviano@example.com",
-        :password => "12345678"
-      }
-
-      @access_token = JSON.parse(last_response.body)["access_token"];
+      @access_token = JSON.parse(last_response.body)['access_token']
     end
 
-    it "should post a message" do
-
+    it 'should post a message' do
       expect(@access_token).not_to be_nil
 
-      header "Authorization", "Bearer #{@access_token}"
-      post "/api/v1/users/messages", {
-        :text => "Hello there!"
-      }
+      header 'Authorization', "Bearer #{@access_token}"
+      post '/api/v1/users/messages', text: 'Hello there!'
 
-      expect(JSON.parse(last_response.body)["text"]).to eq("Hello there!")
+      expect(JSON.parse(last_response.body)['text']).to eq('Hello there!')
     end
 
-    it "should validate the message sending data" do
+    it 'should validate the message sending data' do
       expect(@access_token).not_to be_nil
 
-      header "Authorization", "Bearer #{@access_token}"
-      post "/api/v1/users/messages", {
-        :text => nil
-      }
+      header 'Authorization', "Bearer #{@access_token}"
+      post '/api/v1/users/messages', text: nil
 
       expect(last_response.status).to eq(400)
     end
