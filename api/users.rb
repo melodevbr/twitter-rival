@@ -58,7 +58,10 @@ module Twitter
           post :follow do
             access_token_required!
             followed = User.find(params[:id])
-            current_resource_owner.following.push(followed) && current_resource_owner.save
+
+            unless current_resource_owner.following?(followed)
+              current_resource_owner.following.push(followed) && current_resource_owner.save
+            end
 
             followed.as_json(only: %i[id email])
           end

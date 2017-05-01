@@ -88,6 +88,10 @@ describe Twitter::Api::Users do
       header "Authorization", "Bearer #{@access_token}"
       post "/api/v1/users/#{@marcus.id}/follow"
       post "/api/v1/users/#{@ivan.id}/follow"
+      post "/api/v1/users/#{@ivan.id}/follow"
+
+      expect(last_response.status).to eq(201)
+      expect(@hotaviano.following.length).to eq(2)
 
       FactoryGirl.create(:message, text: "Working hard", user: @hotaviano);
       FactoryGirl.create(:message, text: "Hi migos!", user: @hotaviano);
