@@ -29,7 +29,9 @@ module Twitter
         desc 'get current user timeline'
         get :timeline do
           access_token_required!
-          current_resource_owner.timeline
+
+          Message.timeline_from(current_resource_owner)
+                 .as_json(include: { user: { only: %i[id email] } })
         end
 
         # POST /api/v1/users/messages

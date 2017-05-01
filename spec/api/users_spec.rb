@@ -104,8 +104,8 @@ describe Twitter::Api::Users do
 
       expect(JSON.parse(last_response.body).length).to eq(6)
       expect(JSON.parse(last_response.body)[1]["text"]).to eq("DO IT!")
-      expect(@marcus.timeline.length).to eq(2);
-      expect(@ivan.timeline.length).to eq(1);
+      expect(Message.timeline_from(@marcus).length).to eq(2);
+      expect(Message.timeline_from(@ivan).length).to eq(1);
     end
 
   end

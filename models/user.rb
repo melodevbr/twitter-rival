@@ -22,13 +22,6 @@ class User < ActiveRecord::Base
     following.exists?(user)
   end
 
-  def timeline
-    Message.where(user_id: id)
-           .or(Message.where(user: following))
-           .order(created_at: :desc)
-           .as_json(include: { user: { only: %i[id email] } })
-  end
-
   def self.oauth_authenticate(_client, email, password)
     # find the user by it email
     user = User.find_by(email: email)

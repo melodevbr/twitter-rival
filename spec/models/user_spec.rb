@@ -15,11 +15,11 @@ RSpec.describe User do
       create(:message, user: user2)
 
       # returns two posts
-      expect(user1.timeline.length).to eq(2)
+      expect(Message.timeline_from(user1).length).to eq(2)
 
       # posts are sorted
-      expect(user1.timeline.first['user']['email']).to eq('b@b.com')
-      expect(user2.timeline.length).to eq(1)
+      expect(Message.timeline_from(user1).first.user.email).to eq('b@b.com')
+      expect(Message.timeline_from(user2).length).to eq(1)
     end
   end
 end
